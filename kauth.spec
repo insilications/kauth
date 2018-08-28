@@ -6,7 +6,7 @@
 #
 Name     : kauth
 Version  : 5.49.0
-Release  : 2
+Release  : 3
 URL      : https://download.kde.org/stable/frameworks/5.49/kauth-5.49.0.tar.xz
 Source0  : https://download.kde.org/stable/frameworks/5.49/kauth-5.49.0.tar.xz
 Source99 : https://download.kde.org/stable/frameworks/5.49/kauth-5.49.0.tar.xz.sig
@@ -75,7 +75,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1534090300
+export SOURCE_DATE_EPOCH=1535426146
 mkdir clr-build
 pushd clr-build
 %cmake ..
@@ -83,7 +83,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1534090300
+export SOURCE_DATE_EPOCH=1535426146
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/doc/kauth
 cp COPYING.LIB %{buildroot}/usr/share/doc/kauth/COPYING.LIB
@@ -199,6 +199,7 @@ popd
 /usr/share/locale/zh_CN/LC_MESSAGES/kauth5_qt.qm
 /usr/share/locale/zh_HK/LC_MESSAGES/kauth5_qt.qm
 /usr/share/locale/zh_TW/LC_MESSAGES/kauth5_qt.qm
+/usr/share/xdg/kauth.categories
 
 %files dev
 %defattr(-,root,root,-)
