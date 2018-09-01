@@ -6,7 +6,7 @@
 #
 Name     : kauth
 Version  : 5.49.0
-Release  : 3
+Release  : 4
 URL      : https://download.kde.org/stable/frameworks/5.49/kauth-5.49.0.tar.xz
 Source0  : https://download.kde.org/stable/frameworks/5.49/kauth-5.49.0.tar.xz
 Source99 : https://download.kde.org/stable/frameworks/5.49/kauth-5.49.0.tar.xz.sig
@@ -14,8 +14,8 @@ Summary  : No detailed summary available
 Group    : Development/Tools
 License  : BSD-3-Clause LGPL-2.1
 Requires: kauth-lib
-Requires: kauth-license
 Requires: kauth-data
+Requires: kauth-license
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
 BuildRequires : kcoreaddons-dev
@@ -75,7 +75,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1535426146
+export SOURCE_DATE_EPOCH=1535778977
 mkdir clr-build
 pushd clr-build
 %cmake ..
@@ -83,7 +83,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1535426146
+export SOURCE_DATE_EPOCH=1535778977
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/doc/kauth
 cp COPYING.LIB %{buildroot}/usr/share/doc/kauth/COPYING.LIB
@@ -91,12 +91,16 @@ cp cmake/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/doc/kauth/cmake_COPYING-CM
 pushd clr-build
 %make_install
 popd
+## install_append content
+mv %{buildroot}/etc/dbus-1/* %{buildroot}/usr/share/dbus-1/
+## install_append end
 
 %files
 %defattr(-,root,root,-)
 
 %files data
 %defattr(-,root,root,-)
+/usr/share/dbus-1/org.kde.kf5auth.conf
 /usr/share/kf5/kauth/dbus_policy.stub
 /usr/share/kf5/kauth/dbus_service.stub
 /usr/share/locale/af/LC_MESSAGES/kauth5_qt.qm
