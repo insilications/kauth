@@ -1,5 +1,5 @@
 PKG_NAME := kauth
-URL = 
+URL = https://download.kde.org/stable/frameworks/5.50/kauth-5.50.0.tar.xz
 ARCHIVES = 
 
 include ../common/Makefile.common
