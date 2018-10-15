@@ -5,22 +5,22 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : kauth
-Version  : 5.50.0
-Release  : 6
-URL      : https://download.kde.org/stable/frameworks/5.50/kauth-5.50.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.50/kauth-5.50.0.tar.xz
-Source99 : https://download.kde.org/stable/frameworks/5.50/kauth-5.50.0.tar.xz.sig
+Version  : 5.51.0
+Release  : 7
+URL      : https://download.kde.org/stable/frameworks/5.51/kauth-5.51.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.51/kauth-5.51.0.tar.xz
+Source99 : https://download.kde.org/stable/frameworks/5.51/kauth-5.51.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : BSD-3-Clause LGPL-2.1
-Requires: kauth-lib
-Requires: kauth-data
-Requires: kauth-license
+Requires: kauth-data = %{version}-%{release}
+Requires: kauth-lib = %{version}-%{release}
+Requires: kauth-license = %{version}-%{release}
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
 BuildRequires : kcoreaddons-dev
 BuildRequires : pkg-config
-BuildRequires : qtbase-dev qtbase-extras mesa-dev
+BuildRequires : qtbase-dev mesa-dev
 
 %description
 # KAuth
@@ -41,9 +41,9 @@ data components for the kauth package.
 %package dev
 Summary: dev components for the kauth package.
 Group: Development
-Requires: kauth-lib
-Requires: kauth-data
-Provides: kauth-devel
+Requires: kauth-lib = %{version}-%{release}
+Requires: kauth-data = %{version}-%{release}
+Provides: kauth-devel = %{version}-%{release}
 
 %description dev
 dev components for the kauth package.
@@ -52,8 +52,8 @@ dev components for the kauth package.
 %package lib
 Summary: lib components for the kauth package.
 Group: Libraries
-Requires: kauth-data
-Requires: kauth-license
+Requires: kauth-data = %{version}-%{release}
+Requires: kauth-license = %{version}-%{release}
 
 %description lib
 lib components for the kauth package.
@@ -68,26 +68,26 @@ license components for the kauth package.
 
 
 %prep
-%setup -q -n kauth-5.50.0
+%setup -q -n kauth-5.51.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1536430384
-mkdir clr-build
+export SOURCE_DATE_EPOCH=1539624360
+mkdir -p clr-build
 pushd clr-build
 %cmake ..
-make  %{?_smp_mflags}
+make  %{?_smp_mflags} VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1536430384
+export SOURCE_DATE_EPOCH=1539624360
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/doc/kauth
-cp COPYING.LIB %{buildroot}/usr/share/doc/kauth/COPYING.LIB
-cp cmake/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/doc/kauth/cmake_COPYING-CMAKE-SCRIPTS
+mkdir -p %{buildroot}/usr/share/package-licenses/kauth
+cp COPYING.LIB %{buildroot}/usr/share/package-licenses/kauth/COPYING.LIB
+cp cmake/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/kauth/cmake_COPYING-CMAKE-SCRIPTS
 pushd clr-build
 %make_install
 popd
@@ -232,10 +232,10 @@ mv %{buildroot}/etc/dbus-1/* %{buildroot}/usr/share/dbus-1/
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5Auth.so.5
-/usr/lib64/libKF5Auth.so.5.50.0
+/usr/lib64/libKF5Auth.so.5.51.0
 /usr/lib64/qt5/plugins/kauth/helper/kauth_helper_plugin.so
 
 %files license
-%defattr(-,root,root,-)
-/usr/share/doc/kauth/COPYING.LIB
-/usr/share/doc/kauth/cmake_COPYING-CMAKE-SCRIPTS
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/kauth/COPYING.LIB
+/usr/share/package-licenses/kauth/cmake_COPYING-CMAKE-SCRIPTS
