@@ -6,7 +6,7 @@
 #
 Name     : kauth
 Version  : 5.52.0
-Release  : 9
+Release  : 10
 URL      : https://download.kde.org/stable/frameworks/5.52/kauth-5.52.0.tar.xz
 Source0  : https://download.kde.org/stable/frameworks/5.52/kauth-5.52.0.tar.xz
 Source99 : https://download.kde.org/stable/frameworks/5.52/kauth-5.52.0.tar.xz.sig
@@ -29,14 +29,6 @@ Execute actions as privileged user
 KAuth provides a convenient, system-integrated way to offload actions that need
 to be performed as a privileged user (root, for example) to small (hopefully
 secure) helper utilities.
-
-%package abi
-Summary: abi components for the kauth package.
-Group: Default
-
-%description abi
-abi components for the kauth package.
-
 
 %package data
 Summary: data components for the kauth package.
@@ -83,7 +75,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1541868809
+export SOURCE_DATE_EPOCH=1542738579
 mkdir -p clr-build
 pushd clr-build
 %cmake ..
@@ -91,7 +83,7 @@ make  %{?_smp_mflags} VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1541868809
+export SOURCE_DATE_EPOCH=1542738579
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kauth
 cp COPYING.LIB %{buildroot}/usr/share/package-licenses/kauth/COPYING.LIB
@@ -105,10 +97,6 @@ mv %{buildroot}/etc/dbus-1/* %{buildroot}/usr/share/dbus-1/
 
 %files
 %defattr(-,root,root,-)
-
-%files abi
-%defattr(-,root,root,-)
-/usr/share/abi/libKF5Auth.so.5.52.0.abi
 
 %files data
 %defattr(-,root,root,-)
