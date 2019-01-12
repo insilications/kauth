@@ -5,12 +5,12 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : kauth
-Version  : 5.53.0
-Release  : 12
-URL      : https://download.kde.org/stable/frameworks/5.53/kauth-5.53.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.53/kauth-5.53.0.tar.xz
-Source99 : https://download.kde.org/stable/frameworks/5.53/kauth-5.53.0.tar.xz.sig
-Summary  : No detailed summary available
+Version  : 5.54.0
+Release  : 13
+URL      : https://download.kde.org/stable/frameworks/5.54/kauth-5.54.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.54/kauth-5.54.0.tar.xz
+Source99 : https://download.kde.org/stable/frameworks/5.54/kauth-5.54.0.tar.xz.sig
+Summary  : Abstraction to system policy and authentication features
 Group    : Development/Tools
 License  : BSD-3-Clause LGPL-2.1
 Requires: kauth-data = %{version}-%{release}
@@ -68,14 +68,14 @@ license components for the kauth package.
 
 
 %prep
-%setup -q -n kauth-5.53.0
+%setup -q -n kauth-5.54.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1544485397
+export SOURCE_DATE_EPOCH=1547324886
 mkdir -p clr-build
 pushd clr-build
 %cmake ..
@@ -83,7 +83,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1544485397
+export SOURCE_DATE_EPOCH=1547324886
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kauth
 cp COPYING.LIB %{buildroot}/usr/share/package-licenses/kauth/COPYING.LIB
@@ -91,16 +91,13 @@ cp cmake/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/kauth/cma
 pushd clr-build
 %make_install
 popd
-## install_append content
-mv %{buildroot}/etc/dbus-1/* %{buildroot}/usr/share/dbus-1/
-## install_append end
 
 %files
 %defattr(-,root,root,-)
 
 %files data
 %defattr(-,root,root,-)
-/usr/share/dbus-1/org.kde.kf5auth.conf
+/usr/share/dbus-1/system.d/org.kde.kf5auth.conf
 /usr/share/kf5/kauth/dbus_policy.stub
 /usr/share/kf5/kauth/dbus_service.stub
 /usr/share/locale/af/LC_MESSAGES/kauth5_qt.qm
@@ -231,7 +228,7 @@ mv %{buildroot}/etc/dbus-1/* %{buildroot}/usr/share/dbus-1/
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5Auth.so.5
-/usr/lib64/libKF5Auth.so.5.53.0
+/usr/lib64/libKF5Auth.so.5.54.0
 /usr/lib64/qt5/plugins/kauth/helper/kauth_helper_plugin.so
 
 %files license
