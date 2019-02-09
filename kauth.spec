@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : kauth
-Version  : 5.54.0
-Release  : 13
-URL      : https://download.kde.org/stable/frameworks/5.54/kauth-5.54.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.54/kauth-5.54.0.tar.xz
-Source99 : https://download.kde.org/stable/frameworks/5.54/kauth-5.54.0.tar.xz.sig
+Version  : 5.55.0
+Release  : 14
+URL      : https://download.kde.org/stable/frameworks/5.55/kauth-5.55.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.55/kauth-5.55.0.tar.xz
+Source99 : https://download.kde.org/stable/frameworks/5.55/kauth-5.55.0.tar.xz.sig
 Summary  : Abstraction to system policy and authentication features
 Group    : Development/Tools
 License  : BSD-3-Clause LGPL-2.1
@@ -20,6 +20,7 @@ BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
 BuildRequires : kcoreaddons-dev
 BuildRequires : pkg-config
+BuildRequires : polkit-qt-dev
 BuildRequires : qtbase-dev mesa-dev
 
 %description
@@ -68,14 +69,14 @@ license components for the kauth package.
 
 
 %prep
-%setup -q -n kauth-5.54.0
+%setup -q -n kauth-5.55.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1547324886
+export SOURCE_DATE_EPOCH=1549737607
 mkdir -p clr-build
 pushd clr-build
 %cmake ..
@@ -83,7 +84,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1547324886
+export SOURCE_DATE_EPOCH=1549737607
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kauth
 cp COPYING.LIB %{buildroot}/usr/share/package-licenses/kauth/COPYING.LIB
@@ -94,6 +95,7 @@ popd
 
 %files
 %defattr(-,root,root,-)
+/usr/lib64/libexec/kauth/kauth-policy-gen
 
 %files data
 %defattr(-,root,root,-)
@@ -222,13 +224,16 @@ popd
 /usr/lib64/cmake/KF5Auth/KF5AuthMacros.cmake
 /usr/lib64/cmake/KF5Auth/KF5AuthTargets-relwithdebinfo.cmake
 /usr/lib64/cmake/KF5Auth/KF5AuthTargets.cmake
+/usr/lib64/cmake/KF5Auth/KF5AuthToolsTargets-relwithdebinfo.cmake
+/usr/lib64/cmake/KF5Auth/KF5AuthToolsTargets.cmake
 /usr/lib64/libKF5Auth.so
 /usr/lib64/qt5/mkspecs/modules/qt_KAuth.pri
 
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5Auth.so.5
-/usr/lib64/libKF5Auth.so.5.54.0
+/usr/lib64/libKF5Auth.so.5.55.0
+/usr/lib64/qt5/plugins/kauth/backend/kauth_backend_plugin.so
 /usr/lib64/qt5/plugins/kauth/helper/kauth_helper_plugin.so
 
 %files license
