@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : kauth
-Version  : 5.58.0
-Release  : 19
-URL      : https://download.kde.org/stable/frameworks/5.58/kauth-5.58.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.58/kauth-5.58.0.tar.xz
-Source99 : https://download.kde.org/stable/frameworks/5.58/kauth-5.58.0.tar.xz.sig
+Version  : 5.59.0
+Release  : 20
+URL      : https://download.kde.org/stable/frameworks/5.59/kauth-5.59.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.59/kauth-5.59.0.tar.xz
+Source99 : https://download.kde.org/stable/frameworks/5.59/kauth-5.59.0.tar.xz.sig
 Summary  : Abstraction to system policy and authentication features
 Group    : Development/Tools
 License  : BSD-3-Clause LGPL-2.1
@@ -71,14 +71,14 @@ license components for the kauth package.
 
 
 %prep
-%setup -q -n kauth-5.58.0
+%setup -q -n kauth-5.59.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1557773162
+export SOURCE_DATE_EPOCH=1560024265
 mkdir -p clr-build
 pushd clr-build
 export AR=gcc-ar
@@ -93,7 +93,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1557773162
+export SOURCE_DATE_EPOCH=1560024265
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kauth
 cp COPYING.LIB %{buildroot}/usr/share/package-licenses/kauth/COPYING.LIB
@@ -243,9 +243,9 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5Auth.so.5
-/usr/lib64/libKF5Auth.so.5.58.0
+/usr/lib64/libKF5Auth.so.5.59.0
 /usr/lib64/libKF5AuthCore.so.5
-/usr/lib64/libKF5AuthCore.so.5.58.0
+/usr/lib64/libKF5AuthCore.so.5.59.0
 /usr/lib64/qt5/plugins/kauth/backend/kauth_backend_plugin.so
 /usr/lib64/qt5/plugins/kauth/helper/kauth_helper_plugin.so
 
