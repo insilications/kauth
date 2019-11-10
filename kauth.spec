@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : kauth
-Version  : 5.63.0
-Release  : 24
-URL      : https://download.kde.org/stable/frameworks/5.63/kauth-5.63.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.63/kauth-5.63.0.tar.xz
-Source1 : https://download.kde.org/stable/frameworks/5.63/kauth-5.63.0.tar.xz.sig
+Version  : 5.64.0
+Release  : 25
+URL      : https://download.kde.org/stable/frameworks/5.64/kauth-5.64.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.64/kauth-5.64.0.tar.xz
+Source1 : https://download.kde.org/stable/frameworks/5.64/kauth-5.64.0.tar.xz.sig
 Summary  : Abstraction to system policy and authentication features
 Group    : Development/Tools
 License  : BSD-3-Clause LGPL-2.1
@@ -71,14 +71,14 @@ license components for the kauth package.
 
 
 %prep
-%setup -q -n kauth-5.63.0
+%setup -q -n kauth-5.64.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1570918804
+export SOURCE_DATE_EPOCH=1573399985
 mkdir -p clr-build
 pushd clr-build
 # -Werror is for werrorists
@@ -95,11 +95,11 @@ make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1570918804
+export SOURCE_DATE_EPOCH=1573399985
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kauth
-cp COPYING.LIB %{buildroot}/usr/share/package-licenses/kauth/COPYING.LIB
-cp cmake/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/kauth/cmake_COPYING-CMAKE-SCRIPTS
+cp %{_builddir}/kauth-5.64.0/COPYING.LIB %{buildroot}/usr/share/package-licenses/kauth/9a1929f4700d2407c70b507b3b2aaf6226a9543c
+cp %{_builddir}/kauth-5.64.0/cmake/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/kauth/77976f406ba34009d9ba5a43b882fe6de68e5175
 pushd clr-build
 %make_install
 popd
@@ -245,13 +245,13 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5Auth.so.5
-/usr/lib64/libKF5Auth.so.5.63.0
+/usr/lib64/libKF5Auth.so.5.64.0
 /usr/lib64/libKF5AuthCore.so.5
-/usr/lib64/libKF5AuthCore.so.5.63.0
+/usr/lib64/libKF5AuthCore.so.5.64.0
 /usr/lib64/qt5/plugins/kauth/backend/kauth_backend_plugin.so
 /usr/lib64/qt5/plugins/kauth/helper/kauth_helper_plugin.so
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/kauth/COPYING.LIB
-/usr/share/package-licenses/kauth/cmake_COPYING-CMAKE-SCRIPTS
+/usr/share/package-licenses/kauth/77976f406ba34009d9ba5a43b882fe6de68e5175
+/usr/share/package-licenses/kauth/9a1929f4700d2407c70b507b3b2aaf6226a9543c
