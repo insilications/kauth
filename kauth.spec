@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : kauth
-Version  : 5.70.0
-Release  : 32
-URL      : https://download.kde.org/stable/frameworks/5.70/kauth-5.70.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.70/kauth-5.70.0.tar.xz
-Source1  : https://download.kde.org/stable/frameworks/5.70/kauth-5.70.0.tar.xz.sig
+Version  : 5.71.0
+Release  : 33
+URL      : https://download.kde.org/stable/frameworks/5.71/kauth-5.71.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.71/kauth-5.71.0.tar.xz
+Source1  : https://download.kde.org/stable/frameworks/5.71/kauth-5.71.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : BSD-3-Clause LGPL-2.1
@@ -72,15 +72,15 @@ license components for the kauth package.
 
 
 %prep
-%setup -q -n kauth-5.70.0
-cd %{_builddir}/kauth-5.70.0
+%setup -q -n kauth-5.71.0
+cd %{_builddir}/kauth-5.71.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1589217444
+export SOURCE_DATE_EPOCH=1592247893
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -96,11 +96,11 @@ make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1589217444
+export SOURCE_DATE_EPOCH=1592247893
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kauth
-cp %{_builddir}/kauth-5.70.0/COPYING.LIB %{buildroot}/usr/share/package-licenses/kauth/9a1929f4700d2407c70b507b3b2aaf6226a9543c
-cp %{_builddir}/kauth-5.70.0/cmake/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/kauth/77976f406ba34009d9ba5a43b882fe6de68e5175
+cp %{_builddir}/kauth-5.71.0/COPYING.LIB %{buildroot}/usr/share/package-licenses/kauth/9a1929f4700d2407c70b507b3b2aaf6226a9543c
+cp %{_builddir}/kauth-5.71.0/cmake/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/kauth/77976f406ba34009d9ba5a43b882fe6de68e5175
 pushd clr-build
 %make_install
 popd
@@ -120,6 +120,7 @@ popd
 /usr/share/locale/af/LC_MESSAGES/kauth5_qt.qm
 /usr/share/locale/ar/LC_MESSAGES/kauth5_qt.qm
 /usr/share/locale/as/LC_MESSAGES/kauth5_qt.qm
+/usr/share/locale/az/LC_MESSAGES/kauth5_qt.qm
 /usr/share/locale/be/LC_MESSAGES/kauth5_qt.qm
 /usr/share/locale/be@latin/LC_MESSAGES/kauth5_qt.qm
 /usr/share/locale/bg/LC_MESSAGES/kauth5_qt.qm
@@ -250,9 +251,9 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5Auth.so.5
-/usr/lib64/libKF5Auth.so.5.70.0
+/usr/lib64/libKF5Auth.so.5.71.0
 /usr/lib64/libKF5AuthCore.so.5
-/usr/lib64/libKF5AuthCore.so.5.70.0
+/usr/lib64/libKF5AuthCore.so.5.71.0
 /usr/lib64/qt5/plugins/kauth/backend/kauth_backend_plugin.so
 /usr/lib64/qt5/plugins/kauth/helper/kauth_helper_plugin.so
 
