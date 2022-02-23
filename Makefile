@@ -1,5 +1,6 @@
 PKG_NAME := kauth
-URL = https://download.kde.org/stable/frameworks/5.91/kauth-5.91.0.tar.xz
+URL = https://invent.kde.org/frameworks/kauth.git
 ARCHIVES = 
+ARCHIVES_GIT = 
 
 include ../common/Makefile.common
