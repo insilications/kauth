@@ -10,7 +10,6 @@ libKF5Auth.so.5:_ZN5KAuth15ObjectDecoratorD1Ev
 libKF5Auth.so.5:_ZN5KAuth15ObjectDecoratorD2Ev
 libKF5Auth.so.5:_ZNK5KAuth15ObjectDecorator10authActionEv
 libKF5Auth.so.5:_ZNK5KAuth15ObjectDecorator10metaObjectEv
-libKF5Auth.so.5:mangle_path
 libKF5AuthCore.so.5:_ZGTtNKSt13bad_exception4whatEv
 libKF5AuthCore.so.5:_ZGTtNKSt13bad_exceptionD1Ev
 libKF5AuthCore.so.5:_ZGTtNKSt9exception4whatEv
@@ -195,10 +194,4 @@ libKF5AuthCore.so.5:__cxa_init_primary_exception
 libKF5AuthCore.so.5:__cxa_rethrow
 libKF5AuthCore.so.5:__cxa_throw
 libKF5AuthCore.so.5:__gcclibcxx_demangle_callback
-libKF5AuthCore.so.5:__gcov_average_profiler_atomic
-libKF5AuthCore.so.5:__gcov_indirect_call_profiler_v4
-libKF5AuthCore.so.5:__gcov_indirect_call_profiler_v4_atomic
-libKF5AuthCore.so.5:__gcov_ior_profiler_atomic
-libKF5AuthCore.so.5:__gcov_topn_values_profiler_atomic
 libKF5AuthCore.so.5:__gxx_personality_v0
-libKF5AuthCore.so.5:mangle_path
