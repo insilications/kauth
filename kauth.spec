@@ -5,28 +5,237 @@
 %define keepstatic 1
 Name     : kauth
 Version  : 5.91.0
-Release  : 51
+Release  : 401
 URL      : file:///aot/build/clearlinux/packages/kauth/kauth-v5.91.0.tar.gz
 Source0  : file:///aot/build/clearlinux/packages/kauth/kauth-v5.91.0.tar.gz
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-2.0
+Requires: kauth-data = %{version}-%{release}
+Requires: kauth-lib = %{version}-%{release}
+Requires: kauth-libexec = %{version}-%{release}
+BuildRequires : breeze
+BuildRequires : breeze-gtk
+BuildRequires : breeze-icons
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
+BuildRequires : buildreq-qmake
+BuildRequires : cairo-dev
+BuildRequires : curl
+BuildRequires : curl-dev
+BuildRequires : curl-lib
+BuildRequires : dbus
+BuildRequires : dbus-dev
+BuildRequires : extra-cmake-modules
 BuildRequires : extra-cmake-modules-data
+BuildRequires : fontconfig
+BuildRequires : fontconfig-dev
+BuildRequires : fonts-clear
+BuildRequires : frameworkintegration-dev
+BuildRequires : frameworkintegration-lib
+BuildRequires : frameworkintegration-license
+BuildRequires : freetype
+BuildRequires : freetype-dev
+BuildRequires : graphite
+BuildRequires : graphite-dev
+BuildRequires : kactivities-dev
+BuildRequires : karchive-dev
+BuildRequires : kauth
+BuildRequires : kauth-dev
+BuildRequires : kbookmarks-dev
+BuildRequires : kcodecs-dev
+BuildRequires : kcompletion-dev
+BuildRequires : kconfig-dev
 BuildRequires : kcoreaddons-dev
+BuildRequires : kdecoration-dev
+BuildRequires : kdecoration-lib
+BuildRequires : kdoctools-dev
+BuildRequires : keyutils
+BuildRequires : keyutils-dev
+BuildRequires : kglobalaccel-dev
+BuildRequires : kguiaddons-dev
+BuildRequires : ki18n-dev
+BuildRequires : kiconthemes-dev
+BuildRequires : kio-dev
+BuildRequires : kitemmodels-dev
+BuildRequires : kitemviews-dev
+BuildRequires : knewstuff-dev
+BuildRequires : knotifyconfig-dev
+BuildRequires : konsole
+BuildRequires : kparts-dev
+BuildRequires : krb5
+BuildRequires : krb5-dev
+BuildRequires : ktexteditor-dev
+BuildRequires : ktextwidgets-dev
+BuildRequires : kwallet-dev
+BuildRequires : libICE-dev
+BuildRequires : libSM-dev
+BuildRequires : libX11-data
+BuildRequires : libX11-dev
+BuildRequires : libX11-lib
+BuildRequires : libXScrnSaver
+BuildRequires : libXScrnSaver-dev
+BuildRequires : libXScrnSaver-lib
+BuildRequires : libXau-dev
+BuildRequires : libXau-lib
+BuildRequires : libXcomposite-dev
+BuildRequires : libXcursor-dev
+BuildRequires : libXcursor-lib
+BuildRequires : libXdamage-dev
+BuildRequires : libXdamage-lib
+BuildRequires : libXdmcp-dev
+BuildRequires : libXdmcp-lib
+BuildRequires : libXext-dev
+BuildRequires : libXext-lib
+BuildRequires : libXfixes-dev
+BuildRequires : libXfont2-dev
+BuildRequires : libXft-dev
+BuildRequires : libXft-lib
+BuildRequires : libXi-dev
+BuildRequires : libXi-lib
+BuildRequires : libXinerama-dev
+BuildRequires : libXmu-dev
+BuildRequires : libXpm-dev
+BuildRequires : libXrandr-dev
+BuildRequires : libXrender-dev
+BuildRequires : libXrender-lib
+BuildRequires : libXres-dev
+BuildRequires : libXt-dev
+BuildRequires : libXtst-dev
+BuildRequires : libXtst-lib
+BuildRequires : libXv-dev
+BuildRequires : libXxf86vm-dev
+BuildRequires : libXxf86vm-lib
+BuildRequires : libgcrypt-dev
+BuildRequires : libgit2
+BuildRequires : libgit2-dev
+BuildRequires : libogg-dev
+BuildRequires : libsndfile-dev
+BuildRequires : libvorbis-dev
+BuildRequires : libxcb-dev
+BuildRequires : libxcb-lib
+BuildRequires : libxml2-dev
+BuildRequires : libxml2-staticdev
+BuildRequires : m4
+BuildRequires : mesa-dev
+BuildRequires : openssh
+BuildRequires : openssl-dev
+BuildRequires : openssl-staticdev
+BuildRequires : opus-dev
+BuildRequires : pcre-dev
+BuildRequires : pcre-staticdev
+BuildRequires : pcre2-dev
+BuildRequires : pcre2-staticdev
+BuildRequires : pixman-dev
+BuildRequires : pixman-staticdev
+BuildRequires : pkg-config
+BuildRequires : pkg-config-dev
+BuildRequires : plasma-framework-dev
 BuildRequires : polkit-qt-dev
+BuildRequires : pypi-requests
+BuildRequires : python3
+BuildRequires : python3-dev
+BuildRequires : python3-staticdev
+BuildRequires : qtbase-dev
+BuildRequires : setxkbmap
+BuildRequires : sonnet-dev
+BuildRequires : syntax-highlighting-dev
+BuildRequires : syntax-highlighting-staticdev
+BuildRequires : util-linux
+BuildRequires : util-linux-dev
+BuildRequires : wayland
+BuildRequires : wayland-dev
+BuildRequires : xauth
+BuildRequires : xclip
+BuildRequires : xdg-dbus-proxy
+BuildRequires : xdg-desktop-portal
+BuildRequires : xdg-desktop-portal-dev
+BuildRequires : xdg-desktop-portal-gtk
+BuildRequires : xdg-desktop-portal-kde
+BuildRequires : xdg-user-dirs
+BuildRequires : xdg-user-dirs-gtk
+BuildRequires : xdg-utils
+BuildRequires : xdotool
+BuildRequires : xdpyinfo
+BuildRequires : xf86-input-libinput
+BuildRequires : xf86-video-amdgpu
+BuildRequires : xf86-video-ati
+BuildRequires : xf86-video-fbdev
+BuildRequires : xf86-video-nouveau
+BuildRequires : xf86-video-qxl
+BuildRequires : xf86-video-vboxvideo
+BuildRequires : xf86-video-vesa
+BuildRequires : xf86-video-vmware
+BuildRequires : xfontsel
+BuildRequires : xhost
+BuildRequires : xinit
+BuildRequires : xinput
+BuildRequires : xkbcomp
+BuildRequires : xkeyboard-config
+BuildRequires : xkill
+BuildRequires : xmodmap
+BuildRequires : xorg-server
+BuildRequires : xorg-server-dev
+BuildRequires : xorgproto
+BuildRequires : xorgproto-dev
+BuildRequires : xprop
+BuildRequires : xrandr
+BuildRequires : xrdb
+BuildRequires : xrdp
+BuildRequires : xrestop
+BuildRequires : xscreensaver
+BuildRequires : xsel
+BuildRequires : xset
+BuildRequires : xsetroot
+BuildRequires : xvfb-run
+BuildRequires : xwd
+BuildRequires : xwininfo
+BuildRequires : xz
+BuildRequires : xz-dev
 # Suppress stripping binaries
 %define __strip /bin/true
 %define debug_package %{nil}
 
 %description
-# KAuth
-Execute actions as privileged user
-## Introduction
-KAuth provides a convenient, system-integrated way to offload actions that need
-to be performed as a privileged user (root, for example) to small (hopefully
-secure) helper utilities.
+No detailed description available
+
+%package data
+Summary: data components for the kauth package.
+Group: Data
+
+%description data
+data components for the kauth package.
+
+
+%package dev
+Summary: dev components for the kauth package.
+Group: Development
+Requires: kauth-lib = %{version}-%{release}
+Requires: kauth-data = %{version}-%{release}
+Provides: kauth-devel = %{version}-%{release}
+Requires: kauth = %{version}-%{release}
+
+%description dev
+dev components for the kauth package.
+
+
+%package lib
+Summary: lib components for the kauth package.
+Group: Libraries
+Requires: kauth-data = %{version}-%{release}
+Requires: kauth-libexec = %{version}-%{release}
+
+%description lib
+lib components for the kauth package.
+
+
+%package libexec
+Summary: libexec components for the kauth package.
+Group: Default
+
+%description libexec
+libexec components for the kauth package.
+
 
 %prep
 %setup -q -n kauth
@@ -38,7 +247,7 @@ unset https_proxy
 unset no_proxy
 export SSL_CERT_FILE=/var/cache/ca-certs/anchors/ca-certificates.crt
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1645622375
+export SOURCE_DATE_EPOCH=1645622972
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -174,7 +383,7 @@ export LIBRARY_PATH="/usr/local/nvidia/lib64:/usr/local/nvidia/lib64/gbm:/usr/lo
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1645622375
+export SOURCE_DATE_EPOCH=1645622972
 rm -rf %{buildroot}
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
@@ -267,3 +476,63 @@ popd
 
 %files
 %defattr(-,root,root,-)
+
+%files data
+%defattr(-,root,root,-)
+/usr/share/dbus-1/system.d/org.kde.kf5auth.conf
+/usr/share/kf5/kauth/dbus_policy.stub
+/usr/share/kf5/kauth/dbus_service.stub
+/usr/share/qlogging-categories5/kauth.categories
+/usr/share/qlogging-categories5/kauth.renamecategories
+
+%files dev
+%defattr(-,root,root,-)
+/usr/include/KF5/KAuth/KAuth
+/usr/include/KF5/KAuth/KAuthAction
+/usr/include/KF5/KAuth/KAuthActionReply
+/usr/include/KF5/KAuth/KAuthExecuteJob
+/usr/include/KF5/KAuth/KAuthHelperSupport
+/usr/include/KF5/KAuth/KAuthObjectDecorator
+/usr/include/KF5/KAuth/kauth.h
+/usr/include/KF5/KAuth/kauth_version.h
+/usr/include/KF5/KAuth/kauthaction.h
+/usr/include/KF5/KAuth/kauthactionreply.h
+/usr/include/KF5/KAuth/kauthexecutejob.h
+/usr/include/KF5/KAuth/kauthhelpersupport.h
+/usr/include/KF5/KAuth/kauthobjectdecorator.h
+/usr/include/KF5/KAuthCore/KAuth/Action
+/usr/include/KF5/KAuthCore/KAuth/ActionReply
+/usr/include/KF5/KAuthCore/KAuth/ExecuteJob
+/usr/include/KF5/KAuthCore/KAuth/HelperSupport
+/usr/include/KF5/KAuthCore/kauth/action.h
+/usr/include/KF5/KAuthCore/kauth/actionreply.h
+/usr/include/KF5/KAuthCore/kauth/executejob.h
+/usr/include/KF5/KAuthCore/kauth/helpersupport.h
+/usr/include/KF5/KAuthCore/kauth/kauthcore_export.h
+/usr/include/KF5/KAuthWidgets/KAuth/ObjectDecorator
+/usr/include/KF5/KAuthWidgets/kauth/kauth_export.h
+/usr/include/KF5/KAuthWidgets/kauth/objectdecorator.h
+/usr/lib64/cmake/KF5Auth/KF5AuthConfig.cmake
+/usr/lib64/cmake/KF5Auth/KF5AuthConfigVersion.cmake
+/usr/lib64/cmake/KF5Auth/KF5AuthMacros.cmake
+/usr/lib64/cmake/KF5Auth/KF5AuthTargets-none.cmake
+/usr/lib64/cmake/KF5Auth/KF5AuthTargets.cmake
+/usr/lib64/cmake/KF5Auth/KF5AuthToolsTargets-none.cmake
+/usr/lib64/cmake/KF5Auth/KF5AuthToolsTargets.cmake
+/usr/lib64/libKF5Auth.so
+/usr/lib64/libKF5AuthCore.so
+/usr/lib64/qt5/mkspecs/modules/qt_KAuth.pri
+/usr/lib64/qt5/mkspecs/modules/qt_KAuthCore.pri
+
+%files lib
+%defattr(-,root,root,-)
+/usr/lib64/libKF5Auth.so.5
+/usr/lib64/libKF5Auth.so.5.92.0
+/usr/lib64/libKF5AuthCore.so.5
+/usr/lib64/libKF5AuthCore.so.5.92.0
+/usr/lib64/qt5/plugins/kauth/backend/kauth_backend_plugin.so
+/usr/lib64/qt5/plugins/kauth/helper/kauth_helper_plugin.so
+
+%files libexec
+%defattr(-,root,root,-)
+/usr/lib64/libexec/kauth/kauth-policy-gen
